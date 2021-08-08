@@ -21,7 +21,6 @@ const getImages = async () => {
   try {
     data = await response.json();
     allImages = await data;
-    console.log("processing");
   } catch (err) {
     console.log(err);
   }
@@ -33,7 +32,7 @@ const updateDOM = async () => {
     loadDivs.forEach((el) => (el.style.display = "flex"));
 
     for (let i = 0; i < imgOptions.length; i++) {
-      let image = `<img src=${allImages[i].urls.raw}></img>`;
+      let image = `<img src=${allImages[i].urls.regular}></img>`;
 
       imgOptions[i].innerHTML = image;
       //   imgOptions[i].style.backgroundImage = `url('${allImages[i].urls.raw}')`;
@@ -93,6 +92,16 @@ $("#about-us-btn").on("click", () => {
     1200;
 });
 
+$(".about-us-btn").on("click", () => {
+  document.querySelector(".menu-checkbox").checked = false;
+  const position = $("#about").position().top - 65;
+
+  $("html, body").animate({
+    scrollTop: position,
+  }),
+    1200;
+});
+
 $("#gallery-btn").on("click", () => {
   document.querySelector(".menu-checkbox").checked = false;
   const position = $("#gallery").position().top - 65;
@@ -103,7 +112,7 @@ $("#gallery-btn").on("click", () => {
     1200;
 });
 
-$(".hero-btn").on("click", () => {
+$(".gallery-btn").on("click", () => {
   document.querySelector(".menu-checkbox").checked = false;
   const position = $("#gallery").position().top - 65;
 
@@ -113,7 +122,26 @@ $(".hero-btn").on("click", () => {
     1200;
 });
 
+$(".hero-btn").on("click", () => {
+  const position = $("#gallery").position().top - 65;
+
+  $("html, body").animate({
+    scrollTop: position,
+  }),
+    1200;
+});
+
 $("#contact-btn").on("click", () => {
+  document.querySelector(".menu-checkbox").checked = false;
+  const position = $("#contact").position().top;
+
+  $("html, body").animate({
+    scrollTop: position,
+  }),
+    1200;
+});
+
+$(".contact-btn").on("click", () => {
   document.querySelector(".menu-checkbox").checked = false;
   const position = $("#contact").position().top;
 
