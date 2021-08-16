@@ -190,21 +190,22 @@
         <div class="contact-form-container">
           <div class="contact-form-heading">Send us a message</div>
           <form class="contact-form">
-            <label for="name" class="contact-form-label">Name</label>
-            <input type="text" class="contact-form-input name-input" />
-            <label for="email" class="contact-form-label">Email address</label>
-            <input type="email" class="contact-form-input email-input" />
+            <label for="name" class="contact-form-label">Name *</label>
+            <input type="text" class="contact-form-input name-input" required/>
+            <label for="email" class="contact-form-label">Email address *</label>
+            <input type="email" class="contact-form-input email-input" required/>
             <label for="phone" class="contact-form-label"
               >Contact telephone</label
             >
             <input type="number" class="contact-form-input phone-input" />
-            <label for="message" class="contact-form-label">Message</label>
+            <label for="message" class="contact-form-label">Message *</label>
             <textarea class="contact-form-input"></textarea>
             <input
               type="submit"
               class="form-submit-btn"
               id="form-submit-btn"
               value="Send"
+              required
             />
           </form>
         </div>

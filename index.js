@@ -29,6 +29,8 @@ const getImages = async () => {
 
 const updateDOM = async () => {
   await getImages().then(() => {
+    leadImg.innerHTML = `<div class="load-div"><i class="fas fa-spinner spinner"></i></div>`;
+
     loadDivs.forEach((el) => (el.style.display = "flex"));
 
     for (let i = 0; i < imgOptions.length; i++) {
@@ -42,7 +44,12 @@ const updateDOM = async () => {
       });
     }
 
-    leadImg.innerHTML = imgOptions[0].innerHTML;
+    let lead = `<img src="${allImages[0].urls.raw}"/>`;
+    leadImg.innerHTML += lead;
+
+    leadImg.children[1].onload = () => {
+      leadImg.children[0].style.display = "none";
+    };
 
     // leadImg.style.backgroundImage = imgOptions[0].style.backgroundImage;
 
@@ -62,7 +69,14 @@ updateDOM();
 
 imgOptions.forEach((el, index) => {
   el.addEventListener("click", (e) => {
-    leadImg.innerHTML = e.target.innerHTML;
+    leadImg.innerHTML = `<div class="load-div"><i class="fas fa-spinner spinner"></i></div>`;
+
+    let newImg = `<img src="${allImages[index].urls.raw}"/>`;
+    leadImg.innerHTML += newImg;
+
+    leadImg.children[1].onload = () => {
+      leadImg.children[0].style.display = "none";
+    };
 
     imgOptions.forEach((element) => {
       element.parentElement.style.border = "none";
