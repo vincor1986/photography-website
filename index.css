@@ -234,6 +234,12 @@ body {
   border-radius: 0.3rem;
 }
 
+@media (prefers-reduced-motion) {
+  .color {
+    animation: none;
+  }
+}
+
 .color1 {
   background: rgb(22, 90, 121);
   width: 120rem;
