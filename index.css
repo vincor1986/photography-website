@@ -733,6 +733,16 @@ body {
   text-align: center;
 }
 
+.example-container {
+  background: rgb(64, 58, 121);
+  margin-top: 0rem;
+  font-size: 1.3rem;
+}
+
+.example-container a {
+  color: rgb(243, 226, 72);
+}
+
 @media screen and (min-width: 450px) {
   .contact-info-detail {
     font-size: 2rem;
